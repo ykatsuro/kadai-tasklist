@@ -2,6 +2,10 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
   end
+  
+  def new
+    @task = Task.new
+  end
 
   def show
     @task = Task.find(params[:id])
@@ -31,11 +35,7 @@ class TasksController < ApplicationController
       render :edit
     end
   end
-  
-  def new
-    @task = Task.new(task_params)
-  end
-  
+
   def edit
     @task = Task.find(params[:id])
   end
