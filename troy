@@ -1,0 +1,51 @@
+[1mdiff --git a/app/controllers/tasks_controller.rb b/app/controllers/tasks_controller.rb[m
+[1mindex e2186cc..d7b099c 100644[m
+[1m--- a/app/controllers/tasks_controller.rb[m
+[1m+++ b/app/controllers/tasks_controller.rb[m
+[36m@@ -7,6 +7,31 @@[m [mclass TasksController < ApplicationController[m
+     @task = Task.find(params[:id])[m
+   end[m
+   [m
+[32m+[m[32m  def create[m
+[32m+[m[32m    @task = Task.new(message_params)[m
+[32m+[m
+[32m+[m[32m    if @task.save[m
+[32m+[m[32m      flash[:success] = 'Task が正常に投稿されました'[m
+[32m+[m[32m      redirect_to @task[m
+[32m+[m[32m    else[m
+[32m+[m[32m      flash.now[:danger] = 'Task が投稿されませんでした'[m
+[32m+[m[32m      render :new[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[41m  [m
+[32m+[m[32m  def update[m
+[32m+[m[32m    @task = Task.find(params[:id])[m
+[32m+[m
+[32m+[m[32m    if @task.update(task_params)[m
+[32m+[m[32m      flash[:success] = 'Task は正常に更新されました'[m
+[32m+[m[32m      redirect_to @task[m
+[32m+[m[32m    else[m
+[32m+[m[32m      flash.now[:danger] = 'Task は更新されませんでした'[m
+[32m+[m[32m      render :edit[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m[41m  [m
+   def new[m
+     @task = task.new(task_params)[m
+     [m
+[36m@@ -23,6 +48,14 @@[m [mclass TasksController < ApplicationController[m
+     @task = Task.find(params[:id])[m
+   end[m
+   [m
+[32m+[m[32m  def destroy[m
+[32m+[m[32m    @task = Task.find(params[:id])[m
+[32m+[m[32m    @task.destroy[m
+[32m+[m
+[32m+[m[32m    flash[:success] = 'Task は正常に削除されました'[m
+[32m+[m[32m    redirect_to task_url[m
+[32m+[m[32m  end[m
+[32m+[m[41m  [m
+   # Strong Parameter[m
+   def task_params[m
+     params.require(:task).permit(:content)[m
