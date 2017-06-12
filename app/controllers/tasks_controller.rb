@@ -50,8 +50,8 @@ class TasksController < ApplicationController
   
   private
   
-  def set_message
-    @message = Message.find(params[:id])
+  def set_task
+    @task = Task.find(params[:id])
   end
   
   def task_params
