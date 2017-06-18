@@ -28,7 +28,7 @@
     <thead>
       <tr>
         <th>id</th>
-        <th>タイトル</th>
+        <th>ステータス</th>
         <th>タスク</th>
       </tr>
     </thead>
@@ -36,15 +36,12 @@
       <% @tasks.each do |task| %>
         <tr>
           <td><%= link_to task.id, task %></td>
-          <td><%= task.title %></td>
+          <td><%= task.status %></td>
           <td><%= task.content %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <div>
-    <%= paginate @tasks %>
-  </div>
 <% end %>
 
 <%= link_to '新規タスクの投稿', new_task_path, class: "tbn btn-primary" %>
