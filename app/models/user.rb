@@ -6,5 +6,5 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
-  has_many :tasks, class_name: "Task", foreign_key: "user_id"
+  has_many :tasks , class_name: "Task" , foreign_key: "user_id"
 end
