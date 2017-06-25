@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'toppages#index'
   
-  get 'login', to: 'tasks#new'
+  get 'login', to: 'sessions#new'
   post 'login', to: 'tasks#create'
   delete 'logout', to: 'sessions#destroy'
   
