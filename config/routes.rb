@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'sessions/create'
+  get 'tasks/create'
 
   get 'sessions/destroy'
-git 
+
   root to: 'toppages#index'
   
   get 'login', to: 'sessions#new'
