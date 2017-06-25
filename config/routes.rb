@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
 
-  get 'login', to: 'tasks#index'
-  post 'login', to: 'sessions#create'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'tasks#index'
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
