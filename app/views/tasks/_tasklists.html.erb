@@ -10,6 +10,9 @@
           <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= tasklist.created_at %></span>
         </div>
         <div>
+          <p><%= tasklist.content %></p>
+        </div>
+        <div>
           <% if current_user == tasklist.user %>
             <%= link_to "Delete", tasklist, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>
