@@ -8,6 +8,13 @@
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
     </aside>
+      <%= form_for(@status) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
     <div class="col-xs-8">
       <%= render 'tasks/tasks', tasks: @tasks, user: @user %>
     </div>
