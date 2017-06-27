@@ -15,7 +15,7 @@
         <div>
           <% if current_user == task.user %>
             <%= link_to "New", new_task_path, method: :get, class: 'btn btn-primary btn-xs' %>
-            <%= link_to "Edit", edit_task_path, method: :get, class: 'btn btn-primary btn-xs' %>
+            <%= link_to "Edit", edit_task_path@task, method: :get, class: 'btn btn-primary btn-xs' %>
             <%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
             
           <% end %>
