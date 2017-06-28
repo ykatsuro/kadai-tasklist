@@ -31,10 +31,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = current_user.microposts.build(micropost_params)
-    if @micropost.save
-      flash[:success] = 'メッセージを更新しました。'
-      redirect_to root_url
+    @task = Task.find(params[:id])
+  end
+  
+  def show
+    @task = Task.find(params[:id])
   end
   
   def destroy
